@@ -1,0 +1,4 @@
+body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+.module-link { display:block; margin:6px 0; color:#0d6efd; cursor:pointer; }
+#onlineIndicator { font-weight:600; }
+.card { border-radius:10px; }
