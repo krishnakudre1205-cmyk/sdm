@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ASHA Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <div class="card shadow">
+        <div class="card-body">
+          <h3 class="card-title mb-3">ASHA Portal - Login</h3>
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for cat, msg in messages %}
+                <div class="alert alert-{{ cat }}">{{ msg }}</div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+          {% endif %}
+          <form method="post">
+            <div class="mb-3">
+              <label class="form-label">Username or Email</label>
+              <input class="form-control" name="username" value="{{ username or '' }}" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input class="form-control" type="password" name="password" required>
+            </div>
+            <div class="mb-3 d-flex justify-content-between align-items-center">
+              <button class="btn btn-primary">Login</button>
+              <a href="{{ url_for('reset_request') }}">Forgot password?</a>
+            </div>
+          </form>
+          <hr>
+          <div>
+            <strong>Demo credentials:</strong><br>
+            <small>supervisor: <code>admin / 1234</code><br>asha: <code>asha01 / 100</code></small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
